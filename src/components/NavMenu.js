@@ -57,7 +57,7 @@ return (
   to="/films"
   tabIndex={0}
   >
-      <li> Films </li>
+      <li> Products </li>
       </NavLink>
   </ul>
   </div>
