@@ -1,8 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -10,13 +8,11 @@ const NavStyles = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  
-  
 
   ul {
     max-width: 1200px;
     margin: 0 auto;
-    width: 10%;
+    width: 20%;
     text-align: center;
     background-color: var(--yellow);
     /* padding: 0.5rem; */
@@ -24,7 +20,6 @@ const NavStyles = styled.nav`
       display: inline-block;
       border-radius: 8px;
       transition: 0.3s ease background-color;
-     
     }
     a {
       display: inline-block;
@@ -34,35 +29,28 @@ const NavStyles = styled.nav`
       &:hover {
         color: var(--white);
       }
-
     }
     .active {
       color: var(--black);
-     :hover{
+      :hover {
         color: var(--white);
       }
     }
   }
-  
-  `;
+`;
 
 function NavMenu() {
-
-
-return (
-  <NavStyles>
+  return (
+    <NavStyles>
       <div>
-  <ul className="">
-  <NavLink
-  to="/films"
-  tabIndex={0}
-  >
-      <li> Products </li>
-      </NavLink>
-  </ul>
-  </div>
-  </NavStyles>
-);
+        <ul className=''>
+          <li>
+            <Link to='/films'>Films</Link>
+          </li>
+        </ul>
+      </div>
+    </NavStyles>
+  );
 }
 
-export default NavMenu
+export default NavMenu;

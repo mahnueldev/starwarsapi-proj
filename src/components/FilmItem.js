@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components'
 import Blklogo from '../images/blklogo.png'
 import { Link } from 'react-router-dom';
+import {useSwapi, getFilms} from '../context/SwapiState'
 
 
 const FilmStyle = styled.div`
@@ -36,18 +37,27 @@ padding: 2rem;
 `
 
 
-function FilmItem({data}) {
+function FilmItem({dat}) {
+const [swapiState, swapiDispatch] = useSwapi();
+const { films  } = swapiState;
+
+const {title, release_date} = films;
+
+useEffect(() => {
+  getFilms(swapiDispatch);
+}, [swapiDispatch]);
+
 
   return (
       <FilmStyle>
         <div className="container-sec">
           <div className="film-container">
-          {data.map((films, i) =>{
+          {dat.map((films, i) =>{
               return (
                   
                   <Link  className="film-box" key={i} to="/people">
-            <h1>{films.title}</h1>
-            <p>{films.release_date}</p>
+            <h1>{title}</h1>
+            <p>{release_date}</p>
             <div className= "img-box">
       <img src={Blklogo} alt= "blklogo"/>
     </div>

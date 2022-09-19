@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './components/Home';
-import axios from 'axios'
-import Films from './components/Films';
-// import Product from './components/Product';
-// import People from './components/People';
-import NavMenu from './components/NavMenu';
+import Home from './pages/Home';
+import Films from './pages/Films'
+import NavMenu from './components/NavMenu'
 // import Animload from './assets/animation/Animload';
-// import Swapi from './api/Swapi';
+
 
 
 
@@ -15,11 +12,13 @@ import NavMenu from './components/NavMenu';
 function App() {
   
   return (
-    <>
-    
-  <Home/>
-   
-    </>
+    <Router>
+      <NavMenu/>
+ <Switch>
+        <Route path='/' component={Home} exact={true}/>
+        <Route path='/films' component={Films} />
+      </Switch>
+    </Router>
   );
 }
 
