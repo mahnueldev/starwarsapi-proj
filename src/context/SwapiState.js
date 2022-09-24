@@ -12,13 +12,16 @@ export const useSwapi= () => {
 
   // Get Films
 export const getFilms = async (dispatch) => {
-   
-      const res = await axios.get('https://swapi.dev/api/films/?format=json');
+   try{
+      const res = await axios.get('https://swapi.dev/api/films/');
   
       dispatch({
         type: GET_FILMS,
-        payload: res.data
+        payload: res.data.results
       });
+    } catch (err) {
+      console.log(err)
+    };
     };
   
   // Get People
@@ -33,9 +36,9 @@ export const getPeople = async (dispatch) => {
    
   };
   
-  const ContactState = (props) => {
+  const   SwapiState = (props) => {
     const initialState = {
-      films: null,
+      films: [],
       people: null,
       
     };
@@ -49,4 +52,4 @@ export const getPeople = async (dispatch) => {
     );
   };
   
-  export default ContactState;
+  export default SwapiState;
