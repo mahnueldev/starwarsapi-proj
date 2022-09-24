@@ -1,42 +1,22 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Blklogo from '../images/blklogo.png';
 import Bg from '../images/space.png';
 import { useSwapi, getFilms } from '../context/SwapiState';
+import FilmItem from '../components/FilmItem';
 
 const FilmStyle = styled.div`
- height: 100vh;
- 
-.container{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
+
+  height: 100vh;
   .film-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 0.1rem;
     padding: 5rem;
   }
-  .film-box {
+  .container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
-    width: 20rem;
-    height: 30rem;
-    background-color: var(--yellow);
-    margin-top: 10rem;
-    P,
-    h1 {
-      text-decoration: none;
-      color: var(--white);
-    }
-  }
-  .img-box {
-    margin-top: 5rem;
-    padding: 2rem;
-    /* width: 13rem; */
+    justify-content: center;
+    align-content: center;
   }
 `;
 
@@ -49,26 +29,19 @@ function Films() {
   }, [swapiDispatch]);
 
   return (
-    <FilmStyle 
-    style={{
-      backgroundImage: `url(${Bg})`,
-      backgroundSize: 'cover'
-    }}>
-     
-        <div className='film-container'>
-          {films.map((film, i) => {
-            return (
-              <div className='film-box' key={i}>
-                <h1>{film.title}</h1>
-                <p>{film.release_date}</p>
-                <div className='img-box'>
-                  <img src={Blklogo} alt='blklogo' />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      
+    <FilmStyle
+      style={{
+        backgroundImage: `url(${Bg})`,
+        backgroundSize: 'cover',
+      }}
+    >
+      <div className="film-container">
+      {films.map((film, i) => {
+        return(
+        <FilmItem film={film} key={i} />
+        )
+      })}
+      </div>
     </FilmStyle>
   );
 }

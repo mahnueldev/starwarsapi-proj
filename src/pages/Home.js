@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SwLogo from '../images/sw-logo.png';
-import Bg from '../images/space.png';
+import Bg from '../images/space_ship.jpg';
+import Films from './Films';
 
 const HomeStyle = styled.div`
   .bg-sec-container {
@@ -35,6 +36,7 @@ function Home() {
           className='bg-style'
           style={{
             backgroundImage: `url(${Bg})`,
+            backgroundSize: 'cover',
           }}
         >
           <div className='bg-sec'>
@@ -42,6 +44,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Films/>
     </HomeStyle>
   );
 }

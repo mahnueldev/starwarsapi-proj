@@ -45,7 +45,7 @@ function NavMenu() {
       <div>
         <ul className=''>
           <li>
-            <Link to='/films'>Films</Link>
+            <Link to='/people'>People</Link>
           </li>
         </ul>
       </div>
